@@ -5,3 +5,24 @@
 <%= link_to "Edit car", edit_car_path %>
 <%= link_to "Back to index", cars_path %>
 <%= link_to "Delete car entry", car_path(@car), method: :delete, data: {confirm: "Are you sure?"} %>
+
+
+<h1><strong>Reviews</strong></h1>
+  <ul class="list-group">
+    <% @car.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.comment %></li>
+      <li class="list-group-item"><%= '⭐' * review.rating %></li>
+      <br>
+    <% end %>
+  </ul>
+
+
+<p>Please leave a review:</p>
+<%= simple_form_for [@car, @review] do |f|%>
+  <%= f.input :rating, collection: 0..5 %>
+  <%= f.input :comment %>
+  <br>
+  <%= f.submit "Submit review", class:"btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "Back to index", cars_path %>
