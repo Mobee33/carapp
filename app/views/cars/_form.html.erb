@@ -1,0 +1,7 @@
+<%= simple_form_for @car do |f| %>
+  <%= f.input :name %>
+  <%= f.input :model %>
+  <%= f.input :price %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to "Back to index", cars_path, class:"btn btn-secondary" %>
+<% end %>

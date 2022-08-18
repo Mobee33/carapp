@@ -1,0 +1,7 @@
+<h2><%= @car.name %></h2>
+<p>Model: <%= @car.model %></p>
+<p>Rs <%= @car.price %></p>
+
+<%= link_to "Edit car", edit_car_path %>
+<%= link_to "Back to index", cars_path %>
+<%= link_to "Delete car entry", car_path(@car), method: :delete, data: {confirm: "Are you sure?"} %>
