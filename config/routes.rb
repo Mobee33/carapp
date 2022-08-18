@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-  resources :cars
+  resources :cars do
+    resources :reviews
+  end
 end
