@@ -1,4 +1,7 @@
 <h2><%= @car.name %></h2>
+<% if @car.image_url %>
+  <%= image_tag(@car.image_url, height: '500px', width: '500px', style: 'object-fit:cover; padding-left: 16px;') %>
+<% end %>
 <p>Model: <%= @car.model %></p>
 <p>Rs <%= @car.price %></p>
 
