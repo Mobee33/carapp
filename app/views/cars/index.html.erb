@@ -1,7 +1,16 @@
-<ul>
-  <% @cars.each do |car| %>
-    <li><%= link_to car.name, car_path(car) %></li>
-  <% end %>
-</ul>
 
-<%= link_to "Add a car", new_car_path %>
+  <% @cars.each do |car| %>
+    <%= link_to car_path(car) do%>
+      <div class="card-product">
+        <% if car.image_url %>
+          <%= image_tag(car.image_url, style: 'object-fit:cover;') %>
+        <% else %>
+          <%= image_tag('https://hsbvet.com/mm5/graphics/00000001/1/img_not_found.png', style: 'object-fit:cover;') %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= car.name %></h2>
+          <p>Model: <strong><%= car.model %></strong></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
